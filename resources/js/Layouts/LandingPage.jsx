@@ -1,13 +1,15 @@
 import { Link } from "@inertiajs/react"
 import { Button, DarkThemeToggle, Flowbite, Footer, Navbar, } from "flowbite-react"
+import Logo from '../../../public/logo.png';
+import LogoFooter from '../../../public/logo-footer.png';
 
 export default function LandingPage({children}){
     return (
         <Flowbite>
                 <Navbar  >
                     <Navbar.Brand href="https://flowbite-react.com">
-                        {/* <img src="/favicon.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" /> */}
-                        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Rifjan Jundila</span>
+                        <img src={Logo} className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
+                        {/* <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Rifjan Jundila</span> */}
                     </Navbar.Brand>
                     <div className="flex md:order-2">
                         <DarkThemeToggle/>
@@ -25,15 +27,16 @@ export default function LandingPage({children}){
                 <main>
                     {children}
                 </main>
-                <Footer container className="rounded-none">
+                <Footer container  className="rounded-none">
                     <div className="w-full text-center">
                         <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
                         <Footer.Brand
+                            className="w-fit h-10"
                             // href="https://flowbite.com"
-                            // src="https://flowbite.com/docs/images/logo.svg"
+                            src={LogoFooter}
                             // alt="Flowbite Logo"
-                            // name="Flowbite"
                             name="Rifjan"
+                            // name="Rifjan"
                         />
                         <Footer.LinkGroup>
                             <Footer.Link href="#">About</Footer.Link>

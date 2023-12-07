@@ -3,6 +3,7 @@ import { Head } from "@inertiajs/react";
 import { Button, Tooltip, Timeline } from "flowbite-react";
 import BG from "../../../public/bg-1.svg";
 import Datains from "../../../public/datains.png"
+import Rifjan from "../../../public/rifjan.jpg"
 import Intermedia from "../../../public/logo_gi.png"
 import Binar from "../../../public/logo_binar_purple.svg"
 import Dompet from "../../../public/dompet.svg"
@@ -13,13 +14,37 @@ import Bright from "../../../public/bright.png";
 import Stack from "@/Components/Stack";
 import { TypeAnimation } from 'react-type-animation';
 import { HiArrowNarrowRight, HiCalendar } from 'react-icons/hi';
+import Particles from 'react-particles';
+import { loadFull } from 'tsparticles';
+import particlesConfig from "@/Components/ParticlesConfig";
+import { useCallback } from "react";
+
 
 
 export default function Welcome(){
+    const particlesInit = useCallback(async engine => {
+        console.log(engine);
+
+        // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
+        // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+        // starting from v2 you can add only the features you need reducing the bundle size
+        //await loadFull(engine);
+        await loadFull(engine);
+    }, []);
+
+    const particlesLoaded = useCallback(async container => {
+    }, []);
     return (
         <LandingPageLayout>
             <Head title="Home"/>
             <section className="bg-white dark:bg-gray-900 h-screen">
+                <Particles
+                        id="tsparticles"
+                        init={particlesInit}
+                        loaded={particlesLoaded}
+                        options={particlesConfig(true)}
+                        className='h-full w-full absolute top-10 left-0 -z-1'
+                />
                 <div className="grid items-center max-w-screen-xl h-screen px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 ">
                     <div className="mr-auto place-self-center lg:col-span-7 relative">
                         <div className='flex'>
@@ -268,39 +293,14 @@ export default function Welcome(){
                         </p>
                     </div>
                     <div className="grid grid-cols-3 gap-4 items-center">
-                        <div>
-                            <div className="grid grid-cols-2 gap-2">
-                                <div>
-                                    <img
-                                    className="h-auto max-w-full rounded-lg"
-                                    src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
-                                    alt=""
-                                    />
-                                </div>
-                                <div>
-                                    <img
-                                    className="h-auto max-w-full rounded-lg"
-                                    src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
-                                    alt=""
-                                    />
-                                </div>
-                                <div>
-                                    <img
-                                    className="h-auto max-w-full rounded-lg"
-                                    src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
-                                    alt=""
-                                    />
-                                </div>
-                                <div>
-                                    <img
-                                    className="h-auto max-w-full rounded-lg"
-                                    src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
-                                    alt=""
-                                    />
-                                </div>
-                            </div>
-
+                        <div className="px-4">
+                            <img
+                            className="h-1/2 max-w-full transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0"
+                            src={Rifjan}
+                            alt=""
+                            />
                         </div>
+
                         <div className="col-span-2">
                         <Timeline>
                             <Timeline.Item>
@@ -310,7 +310,7 @@ export default function Welcome(){
                                 <Timeline.Title>Politeknik Negeri Jember | Kabupaten Jember</Timeline.Title>
                                 <Timeline.Time>Teknik Informatika · IPK : 3.73</Timeline.Time>
                                 <Timeline.Body>
-                                    <ul class="max-w-fit space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+                                    <ul className="max-w-fit space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
                                         <li>
                                             Tugas Akhir (Skripsi) mengambil judul PENGEMBANGAN SISTEM INFORMASI PERAMALAN HASIL PRODUKSI TAMBAK UDANG MENGGUNAKAN METODE REGRESI LINIER BERGANDA
                                         </li>
@@ -365,7 +365,7 @@ export default function Welcome(){
                             <Timeline.Time>Okt 2022 - Jan 2023 · 4 bln</Timeline.Time>
                             <Timeline.Title>WebApps Engineer | PT Global Data Inspirasi</Timeline.Title>
                             <Timeline.Body>
-                                <ul class="max-w-fit space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+                                <ul className="max-w-fit space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
                                     <li>
                                         Membantu pengerjaan development di bidang software development untuk mendukung pengembangan produk dan project Datains.
                                     </li>
@@ -398,6 +398,19 @@ export default function Welcome(){
                         </Timeline.Item>
                     </Timeline>
 
+                </div>
+            </section>
+            <section className="bg-slate-500 dark:bg-gray-900">
+                <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+                    <div className="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
+                        <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+                            Projects
+                        </h2>
+                        <p className="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">
+                            Explore the whole collection of open-source web components and elements
+                            built with the utility classes from Tailwind
+                        </p>
+                    </div>
                 </div>
             </section>
             <section className="bg-white dark:bg-gray-900">

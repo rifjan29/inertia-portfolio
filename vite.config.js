@@ -9,5 +9,6 @@ export default defineConfig({
             refresh: true,
         }),
         react(),
+        // ckeditor5( { theme: require.resolve( '@ckeditor/ckeditor5-build-classic' ) } )
     ],
 });
